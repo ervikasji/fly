@@ -17,11 +17,11 @@ points,
 time
 (timestamp_seconds
 (CAST
-  (AVG
-    (UNIX_SECONDS
-      (PARSE_TIMESTAMP('%H:%M.%S', minimum_time))
-    )
-  OVER (ORDER BY heat_id ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW)
+(AVG
+(UNIX_SECONDS
+(PARSE_TIMESTAMP('%H:%M.%S', minimum_time))
+)
+OVER (ORDER BY heat_id ROWS BETWEEN UNBOUNDED PRECEDING AND CURRENT ROW)
 AS INT64)
 )
 )
